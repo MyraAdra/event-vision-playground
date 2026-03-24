@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Camera Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>See Like an Event Camera</h1>
+  <p class="subtitle">
+    Event cameras only react to <em>change</em> — not absolute brightness.
+  </p>
+
+  <div class="presets">
+    <span class="presets-label">Try:</span>
+    <button class="preset-btn" data-src="videos/walking_crowd.mp4">🚶 Walking Crowd</button>
+    <button class="preset-btn" data-src="videos/traffic.mp4">🚗 Traffic</button>
+    <button class="preset-btn" data-src="videos/fast_motion.mp4">🤸 Fast Motion</button>
+    <label class="preset-btn upload-btn">
+      📁 Upload your own
+      <input type="file" id="upload" accept="video/*" style="display:none;" />
+    </label>
+  </div>
+
+  <div class="controls">
+    <label for="threshold">
+      Threshold: <span id="thresholdValue">15</span>
+    </label>
+    <input type="range" id="threshold" min="5" max="80" value="15" step="1" />
+
+    <button id="playPauseBtn">⏸ Pause</button>
+
+    <div class="speed-control">
+      <label for="speedSlider">
+        Speed: <span id="speedValue">1x</span>
+      </label>
+      <input type="range" id="speedSlider" min="0.25" max="2" value="1" step="0.25" />
+    </div>
+  </div>
+
+  <!-- 
+  
+   <div class="stats">
+    <span id="onCount">🔵 ON: 0</span>
+    <span id="offCount">🔴 OFF: 0</span>
+    <span id="totalCount">⚡ Total Event Count: 0</span>
+  </div> 
+-->
+  
+ 
+  <div class="toggle">
+    <label><input type="checkbox" id="showON" checked /> 🔵 ON events</label>
+    <label><input type="checkbox" id="showOFF" checked /> 🔴 OFF events</label>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <h2>Original Video</h2>
+      <video id="video" muted loop playsinline></video>
+    </div>
+    <div class="panel">
+      <h2>Event Stream</h2>
+      <canvas id="eventCanvas"></canvas>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
