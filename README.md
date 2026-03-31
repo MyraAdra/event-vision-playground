@@ -2,30 +2,21 @@
 
 # 👁️ See Like an Event Camera
 
-### Approximate Event Camera Simulator (Frame-Difference Model)
-
 [![Live Demo](https://img.shields.io/badge/▶%20Live%20Demo-0a0a0a?style=for-the-badge&logoColor=white)](https://myraaadra.github.io/event-vision-playground)
-[![PhD Project](https://img.shields.io/badge/PhD%20Project-Event--based%20Vision-1e90ff?style=for-the-badge)](https://github.com/MyraAdra)
 [![License](https://img.shields.io/badge/License-MIT-555?style=for-the-badge)](LICENSE)
 
 </div>
 
----
-
-<div align="center">
-
-> *"Traditional cameras capture the world frame by frame. Event cameras only record when something changes."*
-
-</div>
-
----
-
 ## 📸 Demo
+
+#### Approximate Event Camera Simulator (Frame-Difference Model)
+
+This demo approximates event camera behavior by computing intensity differences between consecutive video frames. Each frame is converted to grayscale, smoothed, and compared to the previous one. Then, pixels with changes above a threshold generate ON/OFF “events".
 
 <div align="center">
 
 ![Demo Screenshot](docs/demo.jpg)
-*🔵 Blue = ON events (brightness increase) &nbsp;|&nbsp; 🔴 Red = OFF events (brightness decrease)*
+
 
 </div>
 
@@ -55,9 +46,7 @@ This simulator lets you experience that paradigm shift directly in your browser.
 
 ## How It Works
 
-This demo approximates event camera behavior by computing intensity differences between consecutive video frames. Each frame is converted to grayscale, smoothed, and compared to the previous one. Then, pixels with changes above a threshold generate ON/OFF “events".
-
-### User-uploaded videos → Frame Differencing Approximation
+#### User-uploaded videos → Frame Differencing Approximation
 
 ```
 Video frame N  ──┐
@@ -66,8 +55,8 @@ Video frame N-1 ──┘
 ```
 
 For each pixel:
-- `Δ > +threshold` → **ON event** (🔵 blue)
-- `Δ < −threshold` → **OFF event** (🔴 red)
+- `Δ > +threshold` → **ON event** (🔵 blue, brightness increase)
+- `Δ < −threshold` → **OFF event** (🔴 red, brightness decrease)
 - `|Δ| ≤ threshold` → **silence** (⬛ black, decays)
 
 ---
