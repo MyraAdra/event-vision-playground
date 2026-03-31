@@ -2,7 +2,7 @@
 
 # 👁️ See Like an Event Camera
 
-### A real-time neuromorphic vision simulator — running entirely in your browser.
+### Approximate Event Camera Simulator (Frame-Difference Model)
 
 [![Live Demo](https://img.shields.io/badge/▶%20Live%20Demo-0a0a0a?style=for-the-badge&logoColor=white)](https://myraaadra.github.io/event-vision-playground)
 [![PhD Project](https://img.shields.io/badge/PhD%20Project-Event--based%20Vision-1e90ff?style=for-the-badge)](https://github.com/MyraAdra)
@@ -24,14 +24,14 @@
 
 <div align="center">
 
-![Demo Screenshot](docs/demo_screenshot.png)
-*🔵 Blue = ON events (brightness increase) &nbsp;|&nbsp; 🔴 Red = OFF events (brightness decrease) &nbsp;|&nbsp; ⬛ Black = silence*
+![Demo Screenshot](docs/demo.jpg)
+*🔵 Blue = ON events (brightness increase) &nbsp;|&nbsp; 🔴 Red = OFF events (brightness decrease)*
 
 </div>
 
 ---
 
-## 🧠 What Is an Event Camera?
+## What Is an Event Camera?
 
 Unlike traditional frame-based cameras that capture full images at a fixed rate, **event cameras** (also called Dynamic Vision Sensors, or DVS) operate at the **pixel level**. Each pixel is triggered independently the moment it detects a change in brightness.
 
@@ -44,7 +44,7 @@ This simulator lets you experience that paradigm shift directly in your browser.
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
@@ -53,7 +53,9 @@ This simulator lets you experience that paradigm shift directly in your browser.
 | 🔵🔴 **Polarity toggles** | Show/hide ON events, OFF events, or both independently |
 ---
 
-## 🔬 How It Works
+## How It Works
+
+This demo approximates event camera behavior by computing intensity differences between consecutive video frames. Each frame is converted to grayscale, smoothed, and compared to the previous one. Then, pixels with changes above a threshold generate ON/OFF “events".
 
 ### User-uploaded videos → Frame Differencing Approximation
 
@@ -72,8 +74,6 @@ For each pixel:
 
 ## 🚀 Run Locally
 
-No build step needed — just serve the folder:
-
 ```bash
 git clone https://github.com/MyraAdra/event-vision-playground.git
 cd event-vision-playground
@@ -82,21 +82,6 @@ python -m http.server 8000
 
 Then open [`http://localhost:8000`](http://localhost:8000)
 
----
-
-## 📁 Project Structure
-
-```
-see-like-an-event-camera/
-├── index.html          
-├── style.css           
-├── main.js            
-└── videos/
-    ├── walking_crowd.mp4
-    ├── traffic.mp4
-    └── fast_motion.mp4
- 
-```
 ---
 
 ## 🤝 Contact
