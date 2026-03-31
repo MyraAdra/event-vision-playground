@@ -2,16 +2,15 @@
 
 # 👁️ See Like an Event Camera
 
-[![Live Demo](https://img.shields.io/badge/▶%20Live%20Demo-0a0a0a?style=for-the-badge&logoColor=white)](https://myraaadra.github.io/event-vision-playground)
+[![Live Demo](https://img.shields.io/badge/▶%20Live%20Demo-0a0a0a?style=for-the-badge&logoColor=white)](https://myraadra.github.io/event-vision-playground)
 [![License](https://img.shields.io/badge/License-MIT-555?style=for-the-badge)](LICENSE)
 
 </div>
 
+
 ## 📸 Demo
 
-#### Approximate Event Camera Simulator (Frame-Difference Model)
-
-This demo approximates event camera behavior by computing intensity differences between consecutive video frames. Each frame is converted to grayscale, smoothed, and compared to the previous one. Then, pixels with changes above a threshold generate ON/OFF “events".
+This demo is an approximate Event Camera Simulator based on Frame-difference. That means it approximates event camera behavior by computing intensity differences between consecutive video frames. Each frame is converted to grayscale, smoothed, and compared to the previous one. Then, pixels with changes above a threshold generate ON/OFF “events".
 
 <div align="center">
 
